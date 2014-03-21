@@ -34,11 +34,7 @@
 		<?php echo $form->passwordField($model,'password',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
-	<div class="row">
-		<?php echo $form->labelEx($model,'tipousuario'); ?>
-		<?php echo $form->dropDownList($model,'tipousuario',array(''=>'Seleccione una opción','1'=>'Administrador','2'=>'Cliente')); ?>
-		<?php echo $form->error($model,'tipousuario'); ?>
-	</div>
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'nombre'); ?>
 		<?php echo $form->textField($model,'nombre',array('size'=>60,'maxlength'=>255)); ?>
@@ -53,18 +49,30 @@
 
 	
 
-	<div class="row">
+<!--<div class="row">
 		<?php echo $form->labelEx($model,'cliente'); ?>
 		<?php echo $form->textField($model,'cliente'); ?>
 		<?php echo $form->error($model,'cliente'); ?>
 	</div>
-
+-->
 	<div class="row">
 		<?php echo $form->labelEx($model,'activo'); ?>
 		<?php echo $form->dropDownList($model,'activo',array('1'=>'Activo','0'=>'Inactivo')); ?>
 		<?php echo $form->error($model,'activo'); ?>
 	</div>
-
+	<div class="row">
+		<?php echo $form->labelEx($model,'tipousuario'); ?>
+		<?php echo $form->dropDownList($model,'tipousuario',array(''=>'Seleccione una opción','1'=>'Administrador','2'=>'Cliente')); ?>
+		<?php echo $form->error($model,'tipousuario'); ?>
+	</div>
+	
+	<div id="clientForm">
+	<?php 
+		$cliente=new Cliente;
+		$this->renderPartial('_clientForm', array('cliente'=>$cliente)); 	
+	?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
