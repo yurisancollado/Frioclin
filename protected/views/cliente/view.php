@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Cliente', 'url'=>array('index')),
-	array('label'=>'CrearCliente', 'url'=>array('create')),
+	array('label'=>'CrearCliente', 'url'=>array('usuario','create')),
 	array('label'=>'Modificar Cliente', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Eliminar Cliente', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Administrar Cliente', 'url'=>array('admin')),
