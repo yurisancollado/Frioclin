@@ -65,10 +65,10 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=ilfra_data_frioclin',
 			'emulatePrepare' => true,
 			'username' => 'ilfra_frio',
-			'password' => 'frio1234',
+			'password' => 'frio1234clin',
 			'charset' => 'utf8',
 		),
-		
+		  
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
