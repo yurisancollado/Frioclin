@@ -60,18 +60,11 @@
 		<?php echo $form->dropDownList($model,'activo',array('1'=>'Activo','0'=>'Inactivo')); ?>
 		<?php echo $form->error($model,'activo'); ?>
 	</div>
-	<div class="row">
-		<?php echo $form->labelEx($model,'tipousuario'); ?>
-		<?php echo $form->dropDownList($model,'tipousuario',array(''=>'Seleccione una opción','1'=>'Administrador','2'=>'Cliente')); ?>
-		<?php echo $form->error($model,'tipousuario'); ?>
-	</div>
+
 	
-	<div id="clientForm">
-	<?php 
-		$cliente=new Cliente;
-		$this->renderPartial('_clientForm', array('cliente'=>$cliente)); 	
-	?>
-	</div>
+	<?php echo $form->hiddenField($model, 'tipousuario',array('value'=>'1')); ?>
+	<?php echo $form->hiddenField($model, 'superusuario',array('value'=>'1')); ?>
+	
 	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>

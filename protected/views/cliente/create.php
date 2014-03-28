@@ -1,22 +1,20 @@
 <?php
-/* @var $this ClienteController */
-/* @var $model Cliente */
+/* @var $this UsuarioController */
+/* @var $model Usuario */
 
 $this->breadcrumbs=array(
-	'Clientes'=>array('index'),
+	'Usuarios'=>array('index'),
 	'Crear',
 );
  
 $this->menu=array(
-	array('label'=>'Listar Cliente', 'url'=>array('index')),
-	array('label'=>'Administrar Cliente', 'url'=>array('admin')),
+	array('label'=>'Listar Usuario', 'url'=>array('index')),
+	array('label'=>'Administrar Usuario', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Crear Cliente</h1>
+<h3>Datos del Cliente</h3>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'usuario'=>$usuario)); ?>
+<?php $this->renderPartial('newcreate', array('model'=>$model,'cliente'=>$cliente)); ?>
 
-<script>
-	alert('Hola');	
-</script>
+ 

@@ -62,22 +62,32 @@ class ClienteController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Cliente;
-		$usuario=new Usuario;
+		$model=new Usuario;
+		$cliente=new Cliente;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
-		if(isset($_POST['Cliente']))
+		if(isset($_POST['Usuario'])&&isset($_POST['Cliente']))
 		{
-			$model->attributes=$_POST['Cliente'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$model->attributes=$_POST['Usuario'];
+			$cliente->attributes=$_POST['Cliente'];
+			if($model->password!=="")
+				$model->password=md5($model->password);
+			$model->created_at=date('Y-m-d H:i:s');
+			$model->last_visit=date('Y-m-d H:i:s');
+			$model->activo=1;
+			if($cliente->save()){
+				$model->cliente=$cliente->id;
+				if($model->save())
+					$this->redirect(array('view','id'=>$model->id));
+			}
+			
 		}
-
+		
 		$this->render('create',array(
 			'model'=>$model,
-			'usuario'=>$usuario
+			'cliente'=>$cliente
 		));
 	}
 

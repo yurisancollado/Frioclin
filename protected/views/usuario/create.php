@@ -12,19 +12,9 @@ $this->menu=array(
 	array('label'=>'Administrar Usuario', 'url'=>array('admin')),
 );
 ?>
+ 
+<h3>Datos del Cliente</h3>
 
-<h1>Crear Usuario</h1>
+<?php $this->renderPartial('_form', array('model'=>$model,'cliente'=>$cliente)); ?>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
-
-
-
-<script>
-		$('#clientForm').hide();
-		$('#Usuario_tipousuario').change(function(){
-			if($('#Usuario_tipousuario').val()==1)
-				$('#clientForm').hide();
-			if($('#Usuario_tipousuario').val()==2)
-				$('#clientForm').show();
-	});
-</script>
+ 

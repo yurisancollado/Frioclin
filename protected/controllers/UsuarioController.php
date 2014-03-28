@@ -59,9 +59,12 @@ class UsuarioController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+	
+	
 	public function actionCreate()
 	{
 		$model=new Usuario;
+
 
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
@@ -69,17 +72,21 @@ class UsuarioController extends Controller
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
+
 			if($model->password!=="")
 				$model->password=md5($model->password);
 			$model->created_at=date('Y-m-d H:i:s');
 			$model->last_visit=date('Y-m-d H:i:s');
 			$model->activo=1;
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+		
+			
 		}
-
+		
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model
 		));
 	}
 
